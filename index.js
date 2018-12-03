@@ -76,7 +76,7 @@ const ScrollableTabView = createReactClass({
 
       const callListeners = this._polyfillAnimatedValue(scrollValue);
       scrollXIOS.addListener(
-        ({ value, }) => callListeners(value / this.state.containerWidth)
+        ({ value, }) => callListeners(this.state.currentPage + value / this.state.containerWidth)
       );
     } else {
       positionAndroid = new Animated.Value(this.props.initialPage);
